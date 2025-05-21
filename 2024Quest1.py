@@ -1,3 +1,5 @@
+from collections import Counter
+
 with open('EverybodyCodes/Inputs/2024Quest1Part1.txt') as f:
     lines = f.read()
 with open('EverybodyCodes/Inputs/2024Quest1Part2.txt') as f:
@@ -41,6 +43,19 @@ def partTwo():
 
 def partThree():
     potions = 0
+    monsterGroups = [lines3[i: i + 3] for i in range(0, len(lines3), 3)]
+
+    for i in monsterGroups:
+        count = Counter(i)
+        if count['x'] == 1:
+            potions += 2
+        elif count['x'] == 0:
+            potions += 6
+        potions = potions + (count['B'])
+        potions = potions + (count['C'] * 3)
+        potions = potions + (count['D'] * 5)
+    print(f'Part Three: {potions}')
+
 
 partOne()
 partTwo()
