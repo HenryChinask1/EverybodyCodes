@@ -2,6 +2,8 @@ with open('EverybodyCodes/Inputs/2024Quest1Part1.txt') as f:
     lines = f.read()
 with open('EverybodyCodes/Inputs/2024Quest1Part2.txt') as f:
     lines2 = f.read()
+with open('EverybodyCodes/Inputs/2024Quest1Part3.txt') as f:
+    lines3 = f.read()
 
 def partOne():
     potions = 0
@@ -37,5 +39,9 @@ def partTwo():
         
     print(f'Part Two: {potions}')
 
+def partThree():
+    potions = 0
+
 partOne()
 partTwo()
+partThree()
