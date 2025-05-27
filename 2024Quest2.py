@@ -6,10 +6,11 @@ with open('EverybodyCodes/Inputs/2024Quest2Part1.txt') as f:
     checks = checks.split(',')
     phrase = lines[2]
 
-with open('EverybodyCodes/Inputs/2024Quest2Part2.txt') as f:
+with open('EverybodyCodes/Inputs/2024Quest2TEST.txt') as f:
     lines2 = f.read().split('\n')
     checks2 = lines2[0]
     checks2 = checks2.split(',')
+    checks2 = sorted(checks2, key=len, reverse=True)
     phrase2 = str(lines2[2:])
     phrase2 = phrase2.split(',')
 
@@ -29,13 +30,11 @@ def partTwo():
     ans = 0
     
     for i in phrase2:
-        res = re.findall('|'.join(j for j in checks2), i)
-        for i in res:
-            ans += len(i)
-        print(res)
-        res = re.findall('|'.join(j for j in checks2), i[::-1])
-        for i in res:
-            ans += len(i)
+        print('|'.join(j for j in checks2) + '|' + '|'.join(j[::-1] for j in checks2), '\n')
+        res = re.findall('|'.join(j for j in checks2) + '|' + '|'.join(j[::-1] for j in checks2), i)
+        for k in res:
+            ans += len(k)
+            print(len(k))
 
     print(f'Part Two: {ans}')
 
@@ -46,3 +45,4 @@ def partThree():
 
 partOne()
 partTwo()
+partThree()
